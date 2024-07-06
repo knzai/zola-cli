@@ -4,9 +4,25 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+    #need separate checkout in root for deploy action it seems
+    - uses: actions/checkout@master
     - uses: actions/checkout@master
       with:
         submodules: true
         ref: site
-    - uses: knzai/zola-cli@main
+        path: site
+    - uses: knzai/zola-cli@check
+      with:
+        root: site
+        drafts: true
+    - uses: knzai/zola-cli@build
+      with:
+        root: site
+        drafts: true
+        base-url: foo.com
+        output-dir: blarg
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: blarg
         
