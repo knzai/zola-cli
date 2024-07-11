@@ -1,5 +1,7 @@
 # GH Action for Zola CLI
 
+## Deprecated for: https://github.com/zolacti/on
+
 ![Build Status](https://img.shields.io/github/actions/workflow/status/knzai/zola-cli/test.yml)
 
 A GitHub action that replicates the [zola](https://github.com/getzola/zola) static site generator's [CLI](https://www.getzola.org/documentation/getting-started/cli-usage/) as much as makes sense in a GH Action (no serve or init). 
